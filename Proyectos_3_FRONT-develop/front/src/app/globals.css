@@ -1,0 +1,78 @@
+@import "tailwindcss"; 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* globals.css */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Estilo para el slider personalizado */
+input[type="range"].custom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+}
+
+input[type="range"].custom-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+input[type="range"].custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #f472b6; /* Rosa fuerte */
+  margin-top: -6px;
+  box-shadow: 0 0 0 2px white;
+}
+
+input[type="range"].custom-slider::-moz-range-track {
+  height: 4px;
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+input[type="range"].custom-slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #f472b6;
+  border: none;
+  box-shadow: 0 0 0 2px white;
+}
