@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprobador de API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Verificar estado de la API</h1>
+  <button onclick="verificarAPI()">Comprobar API</button>
+  <div id="resultado"></div>
+
+  <script>
+    function verificarAPI() {
+      const resultado = document.getElementById('resultado');
+      resultado.textContent = "Comprobando...";
+      
+      fetch('https://educational-thomasa-u-tad-p-3-9572ccaa.koyeb.app/api/auth')
+        .then(response => {
+          if (response.ok) {
+            resultado.textContent = "✅ API está funcionando correctamente.";
+          } else {
+            resultado.textContent = "⚠️ API respondió, pero con un error (" + response.status + ").";
+          }
+        })
+        .catch(error => {
+          resultado.textContent = "❌ No se pudo conectar a la API.";
+          console.error(error);
+        });
+    }
+  </script>
+</body>
+</html>
